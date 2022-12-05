@@ -89,8 +89,8 @@ public class Employee {
         System.out.println();
     }
 
-    public static double minSalaryEmployee (Employee[] employees, double minSalary) {                         // Мин зарплата из сотрудников
-        double min = 900000000;
+    public static double minSalaryEmployee (Employee[] employees) {                         // Мин зарплата из сотрудников
+        double minSalary = 900000000;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 if (employees[i].getSalaryEmployee() < minSalary) {
@@ -125,6 +125,16 @@ public class Employee {
         System.out.println("Cотрудник " + employees[IndexOfMinSalaryOfEmployees(employees)].getNameEmployee() + " " + employees[IndexOfMinSalaryOfEmployees(employees)].getSurnameEmployee() + " " + employees[IndexOfMinSalaryOfEmployees(employees)].getPatronymicEmployee() + " имеет наименьшую оплату в фирме в размере - " + employees[IndexOfMinSalaryOfEmployees(employees)].getSalaryEmployee() + " рублей.");
         System.out.println();
     }
+
+    public static void employeesWithLessSalaries(Employee[] employees, double salaryComparison) { // Вывод Всех сотрудников с зарплатой меньше числа
+        System.out.println("Сотрудники имеющие заработную плату меньше " + salaryComparison + " рублей");
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null && employees[i].getSalaryEmployee() < salaryComparison) {
+                System.out.println("Ф.И.О сотрудника: "  + employees[i].getNameEmployee() + " " + employees[i].getSurnameEmployee() + " " + employees[i].getPatronymicEmployee() + "; отдел №" + employees[i].getDepartmentEmployee() + "; id-" + (i+1) + "; заработная плата - " + employees[i].getSalaryEmployee() + " рублей." );
+                }
+            }
+        System.out.println();
+        }
 
 
     public static double maxSalaryEmployee (Employee[] employees) {                         // Макс зарплата из сотрудников
@@ -162,7 +172,15 @@ public class Employee {
         System.out.println("Cотрудник " + employees[IndexOfMaxSalaryOfEmployees(employees)].getNameEmployee() + " " + employees[IndexOfMaxSalaryOfEmployees(employees)].getSurnameEmployee() + " " + employees[IndexOfMaxSalaryOfEmployees(employees)].getPatronymicEmployee() + " имеет наибольшую оплату в фирме в размере - " + employees[IndexOfMaxSalaryOfEmployees(employees)].getSalaryEmployee() + " рублей.");
         System.out.println();
     }
-
+    public static void EmployeesWithHigherSalaries (Employee[] employees, double salaryComparison) { // Вывод Всех сотрудников с зарплатой меньше числа
+        System.out.println("Сотрудники имеющие заработную плату больше " + salaryComparison + " рублей");
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null && employees[i].getSalaryEmployee() >= salaryComparison) {
+                System.out.println("Ф.И.О сотрудника: "  + employees[i].getNameEmployee() + " " + employees[i].getSurnameEmployee() + " " + employees[i].getPatronymicEmployee() + "; отдел №" + employees[i].getDepartmentEmployee() + "; id-" + (i+1) + "; заработная плата - " + employees[i].getSalaryEmployee() + " рублей." );
+            }
+        }
+        System.out.println();
+    }
 
     public static double averageSumOfAllEmployeesSalaries(Employee[] employees) {              // Средняя зарплата
         int cell = 0;
@@ -210,7 +228,7 @@ public class Employee {
                 if (employees[i] != null) {
                     hg = employees[i].getSalaryEmployee() + (employees[i].getSalaryEmployee() * indexSalary / 100);
                     employees[i].setSalaryEmployee(hg);
-                    System.out.println(employees[i].getNameEmployee() + " " + employees[i].getSurnameEmployee() + " " + employees[i].getPatronymicEmployee() + " —— " + employees[i].getSalaryEmployee() + " рублей");
+                    System.out.println(employees[i].getNameEmployee() + " " + employees[i].getSurnameEmployee() + " " + employees[i].getPatronymicEmployee() + " —— " + employees[i].getSalaryEmployee() + " рублей.");
                 }
             }
         }
@@ -220,7 +238,7 @@ public class Employee {
                 if (employees[i] != null && employees[i].getDepartmentEmployee() == department) {
                     hg = employees[i].getSalaryEmployee() + (employees[i].getSalaryEmployee() * indexSalary / 100);
                     employees[i].setSalaryEmployee(hg);
-                    System.out.println(employees[i].getNameEmployee() + " " + employees[i].getSurnameEmployee() + " " + employees[i].getPatronymicEmployee() + " —— " + employees[i].getSalaryEmployee() + " рублей");
+                    System.out.println(employees[i].getNameEmployee() + " " + employees[i].getSurnameEmployee() + " " + employees[i].getPatronymicEmployee() + " —— " + employees[i].getSalaryEmployee() + " рублей.");
                 }
 
             }
@@ -239,7 +257,7 @@ public class Employee {
                 }
             }
         }
-        System.out.println(employees[index].getNameEmployee() + " " + employees[index].getSurnameEmployee() + " " + employees[index].getPatronymicEmployee() + " имеет наименьшую зарплату по отделу №" + department + " в размере " + minSalary);
+        System.out.println(employees[index].getNameEmployee() + " " + employees[index].getSurnameEmployee() + " " + employees[index].getPatronymicEmployee() + " имеет наименьшую зарплату по отделу №" + department + " в размере " + minSalary + " рублей.");
         System.out.println();
     }
 
@@ -254,7 +272,7 @@ public class Employee {
                 }
             }
         }
-        System.out.println(employees[index].getNameEmployee() + " " + employees[index].getSurnameEmployee() + " " + employees[index].getPatronymicEmployee() + " имеет наибольшую зарплату по отделу №" + department + " в размере " + maxSalary);
+        System.out.println(employees[index].getNameEmployee() + " " + employees[index].getSurnameEmployee() + " " + employees[index].getPatronymicEmployee() + " имеет наибольшую зарплату по отделу №" + department + " в размере " + maxSalary + " рублей.");
         System.out.println();
     }
 

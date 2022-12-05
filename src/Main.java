@@ -1,5 +1,5 @@
 public class Main {
-    public static Employee [] employees = new Employee [10];
+    private static Employee [] employees = new Employee [10];
 
     public static void main(String[] args) {
 
@@ -46,10 +46,10 @@ public class Main {
         Employee.printFirsNameLastNameEmployees(employees, 4);
 
         // Индексация зарплаты всех сотрудников
-        Employee.indexSalaryEmployees(employees, 10, null);
+        Employee.indexSalaryEmployees(employees, 1, null);
 
         // Индексация зарплаты отдела
-        Employee.indexSalaryEmployees(employees, 10, 2);
+        Employee.indexSalaryEmployees(employees, 1, 2);
 
         // Вывод сотрудника с наименьшей заработной платой из отдела
         Employee.minDepartmentEmployeeSalary(employees, 5);
@@ -59,6 +59,12 @@ public class Main {
 
         // Вывод суммы зп отдела
         Employee.printSumDepartmentEmployeeSalary(employees, 5);
+
+        // Вывод всех сотрудников с зарплатой меньше числа
+        Employee.employeesWithLessSalaries(employees, 80000);
+
+        // Вывод всех сотрудников с зарплатой больше числа
+        Employee.EmployeesWithHigherSalaries(employees, 156206.6);
 
 
 

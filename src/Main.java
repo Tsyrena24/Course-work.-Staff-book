@@ -1,6 +1,14 @@
 public class Main {
     private static Employee [] employees = new Employee [10];
 
+    public static int indexOfFreeElement(Employee[] employees) {                            // Нахождение свободной ячейки массива ------------
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] == null) {
+                return i;
+            }
+        }
+        throw new RuntimeException("Data cannot be written! The array is full.");
+    }
     public static void main(String[] args) {
 
         Employee employeeData = new Employee("Иван", "Иванов", "Иванович", 1, 50_560, 1);
@@ -13,31 +21,31 @@ public class Main {
         Employee employeeData7 = new Employee("Анастасия", "Иванова", "Ивановны", 4, 76_444, 1);
         Employee employeeData8 = new Employee("Ксения", "Иванова", "Ивановны", 5, 701_805, 1);
 
-        employees[Employee.indexOfFreeElement(employees)] = employeeData;
-        employees[Employee.indexOfFreeElement(employees)] = employeeData1;
-        employees[Employee.indexOfFreeElement(employees)] = employeeData2;
-        employees[Employee.indexOfFreeElement(employees)] = employeeData3;
-        employees[Employee.indexOfFreeElement(employees)] = employeeData4;
-        employees[Employee.indexOfFreeElement(employees)] = employeeData5;
-        employees[Employee.indexOfFreeElement(employees)] = employeeData6;
-        employees[Employee.indexOfFreeElement(employees)] = employeeData7;
-        employees[Employee.indexOfFreeElement(employees)] = employeeData8;
+        employees[indexOfFreeElement(employees)] = employeeData;
+        employees[indexOfFreeElement(employees)] = employeeData1;
+        employees[indexOfFreeElement(employees)] = employeeData2;
+        employees[indexOfFreeElement(employees)] = employeeData3;
+        employees[indexOfFreeElement(employees)] = employeeData4;
+        employees[indexOfFreeElement(employees)] = employeeData5;
+        employees[indexOfFreeElement(employees)] = employeeData6;
+        employees[indexOfFreeElement(employees)] = employeeData7;
+        employees[indexOfFreeElement(employees)] = employeeData8;
         System.out.println();
 
         // Вывод всех данных сотрудников на консоль
         Employee.employeeDataList(employees);
 
         // Вывод суммы зарплаты всех сотрудников
-        Employee.printSumOfAllEmployeeSalaries(employees);
+        EmployeeSalary.printSumOfAllEmployeeSalaries(employees);
 
         // Вывод среднего значения зарплаты сотрудников
-        Employee.printAverageSumOfAllEmployeesSalaries(employees);
+        EmployeeSalary.printAverageSumOfAllEmployeesSalaries(employees);
 
         // Вывод сотрудника с наименьшей оплатой
-        Employee.printEmployeeDetailsWithMinSalary(employees);
+        EmployeeSalary.printEmployeeDetailsWithMinSalary(employees);
 
         // Вывод сотрудника с наибольшей оплатой
-        Employee.printEmployeeDetailsWithMaxSalary(employees);
+        EmployeeSalary.printEmployeeDetailsWithMaxSalary(employees);
 
         // Вывод Ф.И.О всех сотрудников
         Employee.printFirsNameLastNameEmployees(employees, null);
@@ -46,25 +54,25 @@ public class Main {
         Employee.printFirsNameLastNameEmployees(employees, 4);
 
         // Индексация зарплаты всех сотрудников
-        Employee.indexSalaryEmployees(employees, 1, null);
+        EmployeeSalary.indexSalaryEmployees(employees, 1, null);
 
         // Индексация зарплаты отдела
-        Employee.indexSalaryEmployees(employees, 1, 2);
+        EmployeeSalary.indexSalaryEmployees(employees, 1, 2);
 
         // Вывод сотрудника с наименьшей заработной платой из отдела
-        Employee.minDepartmentEmployeeSalary(employees, 5);
+        EmployeeSalary.minDepartmentEmployeeSalary(employees, 5);
 
         // Вывод сотрудника с наибольшей заработной платой из отдела
-        Employee.maxDepartmentEmployeeSalary(employees, 2);
+        EmployeeSalary.maxDepartmentEmployeeSalary(employees, 2);
 
         // Вывод суммы зп отдела
-        Employee.printSumDepartmentEmployeeSalary(employees, 5);
+        EmployeeSalary.printSumDepartmentEmployeeSalary(employees, 5);
 
         // Вывод всех сотрудников с зарплатой меньше числа
-        Employee.employeesWithLessSalaries(employees, 80000);
+        EmployeeSalary.employeesWithLessSalaries(employees, 80000);
 
         // Вывод всех сотрудников с зарплатой больше числа
-        Employee.EmployeesWithHigherSalaries(employees, 156206.6);
+        EmployeeSalary.employeesWithHigherSalaries(employees, 156206.6);
 
 
 

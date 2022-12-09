@@ -13,12 +13,14 @@ public class EmployeeSalary {
 
     // Мин зарплата из сотрудников
     public static double minSalaryEmployee (Employee[] employees) {
-        double minSalary = 900000000;
+        double minSalary = employees[0].getSalaryEmployee();
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
-                if (employees[i].getSalaryEmployee() < minSalary) {
+                if (employees[i].getSalaryEmployee() > minSalary) {
                     minSalary = employees[i].getSalaryEmployee();
+
                 }
+
             }
         }
         return minSalary;
@@ -143,7 +145,7 @@ public class EmployeeSalary {
 
     //Вывод сотрудника с наименьшей заработной платой из отдела
     public static void minDepartmentEmployeeSalary (Employee[] employees, int department) {
-        double minSalary = 900000000;
+        double minSalary = EmployeeSalary.minSalaryEmployee(employees);
         int index = 0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && employees[i].getDepartmentEmployee() == department) {
@@ -159,7 +161,7 @@ public class EmployeeSalary {
 
     //Вывод сотрудника с наибольшей заработной платой из отдела
     public static void maxDepartmentEmployeeSalary (Employee[] employees, int department) {
-        double maxSalary = 0;
+        double maxSalary = EmployeeSalary.maxSalaryEmployee(employees);
         int index = 0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && employees[i].getDepartmentEmployee() == department) {
@@ -184,7 +186,7 @@ public class EmployeeSalary {
         return sum;
     }
 
-    //===================================================================================================================================================
+    //==================================================================================================================
 
     // Вывод суммы всех зарплат сотрудников
     public static void printSumOfAllEmployeeSalaries(Employee[] employees) {
@@ -215,25 +217,6 @@ public class EmployeeSalary {
         System.out.println("Сумма заработной платы отдела №" + department + " составляет " + sumDepartmentEmployeeSalary(employees, department) + " рублей.");
         System.out.println();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
